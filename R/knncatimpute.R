@@ -5,6 +5,7 @@ function(x,dist=NULL,nn=3,weights=TRUE){
 		stop("nn must be at least 1.")
 	if(nn>=n.row)
 		stop("nn must be smaller than the number of rows of x.")
+	check4Monomorphism(x)
 	if(is.null(dist))
 		dist<-smc(x,dist=TRUE)
 	else

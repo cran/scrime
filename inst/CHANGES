@@ -1,0 +1,55 @@
+Version 1.0.7
+
+Fixed a bug in scrime_internal.Rd.
+
+
+##############
+Version 1.0.6
+
+In replaceNAs, threshold for assuming that two variables are equal lowered 
+(from 10^-5) to 10^-8.
+
+Fixed a bug in rowChisqStats concerning the p-value computation for constant
+variables.
+
+
+##############
+Version 1.0.5
+
+Added man page for simulateSNPcatResponse.
+
+Added function showChanges for showing this file in R.
+
+
+##############
+Version 1.0.4
+
+Added simulateSNPcatResponse (and print.simSNPcatResponse and buildSNPmat) 
+for simulating SNP data and a categorical response.
+
+
+##############
+Version 1.0.3
+
+Added snp1norm2Mats for using Manhattan distance in knncatimputeLarge.
+
+
+##############
+Version 1.0.2
+
+Added row names to the output of knncatimputeLarge.
+
+Now pcc2Mats will also work correctly if a row of x1 and a row of x2 are 
+identical.
+
+
+##############
+Version 1.0.1
+
+Added (internal function) check4Monomorphism to check for variables only 
+showing one level in knncatimpute and knncatimputeLarge.
+
+Added identifyMonomorphism (plus man page) for identifying rows of a matrix 
+showing just one level.
+
+

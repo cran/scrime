@@ -52,6 +52,7 @@ function(data,cl,n.cat,same.ncat=FALSE,compPval=TRUE){
 		return(stats)
 	df<-(df-1)*(n.lev-1)
 	rawp<-pchisq(stats,df,lower=FALSE)
+	rawp[df==0] <- 1
 	structure(list(stats=stats,df=df,rawp=rawp))
 }
 

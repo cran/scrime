@@ -8,8 +8,8 @@
 }
 \usage{
 knncatimputeLarge(data, mat.na = NULL, fac = NULL, fac.na = NULL,
-   nn = 3, distance = c("smc", "cohen", "pcc"), n.num = 100, 
-   use.weights = TRUE, verbose = FALSE)
+   nn = 3, distance = c("smc", "cohen", "snp1norm", "pcc"), 
+   n.num = 100, use.weights = TRUE, verbose = FALSE)
 }
 
 \arguments{
@@ -43,7 +43,8 @@ knncatimputeLarge(data, mat.na = NULL, fac = NULL, fac.na = NULL,
   \item{nn}{an integer specifying \eqn{k}, i.e.\ the number of nearest neighbors, used to impute
     the missing values.}
   \item{distance}{character string naming the distance measure used in \eqn{k} Nearest Neighbors.
-    Must be either \code{"smc"} (default), \code{"cohen"} or \code{"pcc"}.}
+    Must be either \code{"smc"} (default), \code{"cohen"}, \code{"snp1norm"} (which denotes the
+    Manhattan distance for SNPs), or \code{"pcc"}.}
   \item{n.num}{an integer giving the number of rows of \code{mat.na} considered simultaneously
     when replacing the missing values in \code{mat.na}.}
   \item{use.weights}{should weighted \eqn{k} nearest neighbors be used to impute the missing values?

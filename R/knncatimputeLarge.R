@@ -1,11 +1,12 @@
 `knncatimputeLarge` <-
-function(data,mat.na=NULL,fac=NULL,fac.na=NULL,nn=3,distance=c("smc","cohen","pcc"),
+function(data,mat.na=NULL,fac=NULL,fac.na=NULL,nn=3,distance=c("smc","cohen","snp1norm","pcc"),
 		n.num=100,use.weights=TRUE,verbose=FALSE){
 	if(is.null(mat.na)){
 		rs<-rowSums(is.na(data))
 		ids.na<-which(rs>0)
 		if(length(ids.na)==0)
 			stop("There are no missing values in data.")
+		rn<-rownames(data)
 		mat.na<-data[ids.na,,drop=FALSE]
 		data<-data[-ids.na,,drop=FALSE]
 		if(!is.null(fac)){
@@ -29,6 +30,8 @@ function(data,mat.na=NULL,fac=NULL,fac.na=NULL,nn=3,distance=c("smc","cohen","pc
 	if((is.null(fac) & !is.null(fac.na)) | (!is.null(fac) & is.null(fac.na)))
 		stop("Either both or none of fac and fac.na has to be specified.")
 	n.cat<-checkX1X2(data,mat.na)
+	check4Monomorphism(data)
+	check4Monomorphism(mat.na)
 	if(is.null(fac)){
 		fac<-rep(1,nrow(data))
 		fac.na<-rep(1,nrow(mat.na))
@@ -60,6 +63,7 @@ function(data,mat.na=NULL,fac=NULL,fac.na=NULL,nn=3,distance=c("smc","cohen","pc
 	mat<-matrix(0,length(rs),ncol(mat.na))
 	mat[ids.na,]<-mat.na
 	mat[-ids.na,]<-data
+	rownames(mat)<-rn
 	mat	
 }
 

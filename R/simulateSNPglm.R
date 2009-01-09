@@ -31,8 +31,8 @@ function(n.obs=1000,n.snp=50,list.ia=NULL,list.snp=NULL,beta0=-0.5,beta=1.5,maf=
 		stop("list.ia must consist of the values -3, -2, -1, 1, 2, and 3.")
 	if(n.obs<10)
 		stop("n.obs must be at least 10.")
-	if(n.snp<2)
-		stop("n.snp must be at least 1.")
+	if(n.snp<max(2,n.exp))
+		stop("n.snp must be at least ",max(2,n.exp),".")
 	if(length(beta0)>1 | !is.numeric(beta0))
 		stop("beta0 must be a numeric value.")
 	if(!length(beta)%in%c(1,n.ia))
@@ -66,7 +66,6 @@ function(n.obs=1000,n.snp=50,list.ia=NULL,list.snp=NULL,beta0=-0.5,beta=1.5,maf=
 	vec.ia<-character(n.ia)
 	for(i in 1:n.ia)
 		vec.ia[i]<-getIA(list.snp[[i]],list.ia[[i]])
-	vec.ia
 	mat.glm<-matrix(0,n.obs,n.ia+1)
 	mat.glm[,1]<-1
 	mat2<-as.data.frame(mat)

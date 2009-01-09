@@ -8,11 +8,11 @@ function(mat,mat.na,nn=3,distance="smc2Mats",n.num=100,use.weights=TRUE,n.cat=NU
 		consider<-sets[i]:(sets[i+1]-1)
 		tmp<-mat.na[consider,,drop=FALSE]
 		mat.dist<-FUN(mat,tmp,n.cat=n.cat)
-		colS<-colSums(mat.dist<0.00001)
+		colS<-colSums(mat.dist < 10^-8)
 		ids1<-which(colS>0)
 		ids2<-which(colS==0)
 		for(j in ids1){
-			tmp.ids<-which(mat.dist[,j]<0.00001)[1]
+			tmp.ids<-which(mat.dist[,j] < 10^-8)[1]
 			tmp[j,]<-mat[tmp.ids,]
 		}
 		for(j in ids2){

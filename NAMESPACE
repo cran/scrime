@@ -2,7 +2,8 @@ export(analyse.models, cohen, computeContCells, computeContClass, fblr, fblr.wei
 	gknn, knncatimpute, knncatimputeLarge, pamCat, pcc, predictFBLR, recodeAffySNP,
 	recodeSNPs, rowChisqStats, simulateSNPglm, simulateSNPs, smc, snp2bin,
 	canberra2Mats, cohen2Mats, euclidean2Mats, manhattan2Mats, maximum2Mats, minkowski2Mats,
-	pcc2Mats, smc2Mats)	
+	pcc2Mats, smc2Mats, identifyMonomorphism, simulateSNPcatResponse, 
+	print.simSNPcatResponse, showChanges)	
 
 S3method(predict, pamCat)
 S3method(print, pamCat)

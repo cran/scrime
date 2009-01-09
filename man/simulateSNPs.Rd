@@ -97,7 +97,7 @@ simulateSNPs(n.obs, n.snp, vec.ia, prop.explain = 1,
 
 \author{Holger Schwender \email{holger.schwender@udo.edu}}
 
-\seealso{\code{\link{simulateSNPglm}}}
+\seealso{\code{\link{simulateSNPglm}}, \code{\link{simulateSNPcatResponse}}}
 
 \examples{\dontrun{
 # Simulate a data set containing 2000 observations (1000 cases

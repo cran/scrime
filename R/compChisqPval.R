@@ -10,6 +10,7 @@ function(data,stats,n.cat,asMatrix=TRUE){
 	mat.df<-df%*%t(df)
 	df<-mat.df[lower.tri(mat.df)]
 	rawp<-pchisq(stats,df,lower=FALSE)
+	rawp[df==0] <- 1
 	if(!asMatrix)
 		return(list(stats=stats,df=df,rawp=rawp))
 	mat.stat<-mat.df<-mat.p<-matrix(0,n.row,n.row)

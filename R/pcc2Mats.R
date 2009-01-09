@@ -31,6 +31,8 @@ function(x1,x2,chisq=FALSE,version=1,n.cat=NULL){
 	mat.rc<-minrc2Mats(catX1,catX2,n.cat)
 	mat.rc<-mat.rc/(mat.rc-1)
 	mat<-mat.rc*(mat-n)/mat
+	if(any(mat>1))
+		mat[mat>1]<-1
 	mat<-switch(version,sqrt(1-mat),1-sqrt(mat),1-mat)
 	mat
 }

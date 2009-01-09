@@ -23,7 +23,7 @@ simulateSNPglm(n.obs = 1000, n.snp = 50, list.ia = NULL, list.snp = NULL,
      homozygous variant genotype, and a minus before these numbers means that
      the corresponding SNP should be not of this genotype. If, e.g., one of the
      vectors is given by \code{c(1, -1, -3)} and the corresponding vector in
-     \code{list.ia} is \code{c(5, 7, 8)}, then the corresponding interaction
+     \code{list.snp} is \code{c(5, 7, 8)}, then the corresponding interaction
      used in the regression model to specify the response is
       
      \code{(SNP5 == 1) & (SNP7 != 1) & (SNP8 != 3)}. 
@@ -130,7 +130,7 @@ Department of Statistics, University of Dortmund.
 
 \author{Holger Schwender, \email{holger.schwender@udo.edu}}
 
-\seealso{\code{\link{simulateSNPs}}, \code{\link{summary.simSNPglm}}}
+\seealso{\code{\link{simulateSNPs}}, \code{\link{summary.simSNPglm}}, \code{\link{simulateSNPcatResponse}}}
 
 \examples{\dontrun{
 # The simulated data set described in Details.

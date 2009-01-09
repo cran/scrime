@@ -1,5 +1,7 @@
 \name{scrime-internal}
+\alias{buildSNPmat}
 \alias{canberra2Mats}
+\alias{check4Monomorphism}
 \alias{checkATCG}
 \alias{checkCatMat}
 \alias{checkDist}
@@ -40,6 +42,7 @@
 \alias{row2col}
 \alias{sample.snpmat}
 \alias{smc2Mats}
+\alias{snp1norm2Mats}
 \alias{weightMode}
 
 
@@ -49,4 +52,4 @@
    These functions are not meant to be directly called by the user.
 }
 \author{Holger Schwender, \email{holger.schw@gmx.de}}
-\keyword{internal}{scrime-internal}
+\keyword{internal}
