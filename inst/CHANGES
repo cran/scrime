@@ -1,3 +1,27 @@
+Version 1.1.2
+
+Moved buildSNPannotation and shortenSNPdescription from siggenes to
+scrime.
+
+Added the argument sameNull to rowChisq2Class and rowChisqMultiClass
+for their usage in siggenes.
+
+
+##############
+Version 1.1.1
+
+Just a few bug fixes in the new Rd-files.
+
+
+##############
+Version 1.1.0
+
+Added several functions for rowwise computations of statistics (tables,
+frequencies, correlations, Cochran-Armitage trend test, ...) which are
+partly based on contingency tables.
+
+
+##############
 Version 1.0.7
 
 Fixed a bug in scrime_internal.Rd.

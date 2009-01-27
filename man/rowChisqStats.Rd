@@ -4,7 +4,7 @@
 \title{Rowwise Pearson's ChiSquare Statistic}
 \description{
   Computes for each row of a matrix the value of Pearson's ChiSquare statistic
-  for testing if the corresponding variable is associated with a (categorical)
+  for testing if the corresponding categorical variable is associated with a (categorical)
   response, or determines for each pair of rows of a matrix the value of
   Pearson's ChiSquare statistic for testing if the two corresponding variables
   are independent.
