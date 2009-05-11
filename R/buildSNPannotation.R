@@ -1,6 +1,7 @@
 buildSNPannotation<-function(pkg,rs=TRUE,allele=TRUE,gene=TRUE,chromosome=FALSE,
 		position=FALSE,strand=FALSE,cytoband=FALSE,max.genes=0,lib.loc=NULL,
 		others=NULL,subset=NULL,pattern=NULL,na.rm=TRUE){
+	require(oligoClasses)
 	require(pkg,character.only=TRUE,lib.loc=lib.loc) || stop(paste("Package",pkg,
 		"not available."))
 	conn<-db(get(pkg))

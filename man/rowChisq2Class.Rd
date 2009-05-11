@@ -65,6 +65,11 @@ rowChisqMultiClass(..., listTables = NULL, add.pval = TRUE,
 
 \author{Holger Schwender, \email{holger.schwender@udo.edu}}
 \note{
+  In the case of a 2 x 2 table, no continuity correction is applied. In this
+  case, the results of \code{rowChisq2Class} and \code{rowChisMultiClass} are
+  only equal to the results of \code{chisq.test} if in the latter \code{correct = FALSE}
+  is used.
+
   The usual contingency table for a variable can be obtained from the matrices
   by forming a variable-specific matrix in which each row consists of the
   row of one of these matrices.

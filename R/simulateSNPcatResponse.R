@@ -1,5 +1,5 @@
-simulateSNPcatResponse<-function(n.obs=1000,n.snp=50,list.ia=NULL,list.snp=NULL,beta0=-0.5,
-		beta=1.5,maf=0.25,sample.y=TRUE,rand=NA){
+simulateSNPcatResponse<-function(n.obs=1000,n.snp=50,list.ia=NULL,list.snp=NULL,withRef=FALSE,
+		beta0=-0.5,beta=1.5,maf=0.25,sample.y=TRUE,rand=NA){
 	check.snplist<-TRUE
 	if(is.null(list.snp) & is.null(list.ia)){
 		list.ia<-list(c(-1,1),c(1,1,1),list(c(-1,1),c(1,1,1)))
@@ -89,45 +89,18 @@ simulateSNPcatResponse<-function(n.obs=1000,n.snp=50,list.ia=NULL,list.snp=NULL,
 			collapse=" + "))
 	}
 	mat<-buildSNPmat(n.obs,n.snp,maf,vec.ias)
-	mat.prob<-matrix(0,n.obs,n.cat)
+	mat.prob <- matrix(0,n.obs,n.cat)
 	mat2<-as.data.frame(mat)
 	attach(mat2)
 	for(i in 1:n.cat)
 		mat.prob[,i]<-eval(parse(text=vec.models[i]))
 	detach(mat2)
-	mat.prob<-exp(mat.prob)/(1+exp(mat.prob))
-	mat.ias<-matrix(0,n.obs,n.cat)
-	for(i in 1:n.cat)
-		mat.ias[,i]<-mat.prob[,i]>exp(beta0[i])/(1+exp(beta0[i]))
-	cl<-vec.which<-numeric(n.obs)
-	ids.none<-rowSums(mat.ias)==0
-	cl[ids.none]<-sample(n.cat,sum(ids.none),rep=TRUE,prob=exp(beta0)/(1+exp(beta0)))
-	if(!sample.y)
-		cl[!ids.none]<-vec.which[!ids.none]<-max.col(mat.prob[!ids.none,],ties="random")
-	else{
-		for(i in 1:n.cat){
-			ids<-which(mat.ias[,i]==1)	
-			vec.which[ids]<-i
-			tmp<-mat.prob[ids,]
-			tmp[,-i]<-tmp[,-i]/rowSums(tmp[,-i])*(1-tmp[,i])
-			if(n.ias[i]==1)
-				cl[ids]<-sample(n.cat,length(ids),rep=TRUE,prob=tmp[1,])
-			else{
-				uni.prob<-unique(tmp[,i])
-				tmp.cl<-numeric(length(ids))
-				for(j in 1:length(uni.prob)){
-					ids2<-which(tmp[,i]==uni.prob[j])
-					tmp.cl[ids2]<-sample(n.cat,length(ids2),rep=TRUE,
-						prob=tmp[ids2[1],])
-				}
-				cl[ids]<-tmp.cl
-			}
-		}
-	}
-	tab<-table(vec.which,cl)
-	tab<-matrix(tab,ncol=n.cat,dimnames=dimnames(tab))
+	ref.out <- if(withRef) getResponseRef(mat.prob, n.cat, n.obs, beta0, sample.y=sample.y)
+		else getResponseCat1(mat.prob, n.cat, n.obs, beta0, n.ias, sample.y=sample.y)
+	tab <- table(ref.out$vec.which, ref.out$cl)
+	tab <- matrix(tab, ncol=n.cat+withRef, dimnames=dimnames(tab))
 	tab.explain<-data.frame(tab,IA=c("None",vec.ias),check.names=FALSE,stringsAsFactors=FALSE)
-	out<-list(x=mat,y=cl,models=vec.models,maf=maf,tab.explain=tab.explain)
+	out<-list(x=mat,y=ref.out$cl,models=vec.models,maf=maf,tab.explain=tab.explain)
 	class(out)<-"simSNPcatResponse"
 	out		
 }
