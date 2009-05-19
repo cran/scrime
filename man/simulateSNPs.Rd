@@ -4,20 +4,28 @@
 \title{Simulation of SNP data}
 \description{
   Simulates SNP data, where a specified proportion of cases and controls
-  is explained by specified set of SNP interactions.
+  is explained by specified set of SNP interactions. Can also be used
+  to simulate a data set with a multi-categorical response, i.e.\
+  a data set in which the cases are divided into several classes (e.g.,
+  different diseases or subtypes of a disease).
 }
 \usage{
 simulateSNPs(n.obs, n.snp, vec.ia, prop.explain = 1, 
-  list.ia.val = NULL, vec.ia.num = NULL, maf = c(0.1, 0.4), 
-  prob.val = rep(1/3, 3), list.equal = NULL, prob.equal = 0.8,
-  rm.redundancy = TRUE, shuffle = FALSE, shuffle.obs = FALSE, rand = NA)
+  list.ia.val = NULL, vec.ia.num = NULL, vec.cat = NULL,
+  maf = c(0.1, 0.4), prob.val = rep(1/3, 3), list.equal = NULL, 
+  prob.equal = 0.8, rm.redundancy = TRUE, shuffle = FALSE, 
+  shuffle.obs = FALSE, rand = NA)
 }
 
 \arguments{
   \item{n.obs}{either an integer specifying the total number of 
     observations, or a vector of length 2 specifying the number 
-    of cases and the number of controls. If the former,
-    then the number of both cases and controls is \code{ceiling(n.obs/2)}.}
+    of cases and the number of controls. If \code{vec.cat} is specified,
+    then the partitioning of the number of cases to the different
+    classes can be governed by \code{vec.ia.num}. If \code{n.obs} is
+    an integer, then \eqn{1 / c} of the observations will be controls and
+    the remaining observations will be cases, where \eqn{c} is the total number
+    of groups (including the controls).}
   \item{n.snp}{integer specifying the number of SNPs.}
   \item{vec.ia}{a vector of integers specifying the orders of the interactions
     that explain the cases. \code{c(3,1,2,3)}, e.g., means that a three-way,
@@ -44,6 +52,10 @@ simulateSNPs(n.obs, n.snp, vec.ia, prop.explain = 1,
     If \code{NULL}, all the cases are divided into \code{length(vec.ia)} groups of
     about the same size. \code{sum(vec.ia.num)} must be smaller than
     or equal to the total number of cases. Each entry of \code{vec.ia.num} must currently be >= 10.}
+  \item{vec.cat}{a vector of the same length of \code{vec.ia} specifying the subclasses
+    of the cases that are explained by the corresponding interaction in \code{vec.ia}. If \code{NULL},
+    no subclasses will be considered. This feature is currently not fully tested. So be careful
+    if specifying \code{vec.cat}.}
   \item{maf}{either an integer, or a vector of length 2 or \code{n.snp} specifying
     the minor allele frequencies. If an integer, all SNPs will have the same
     minor allele frequency. If a vector of length \code{n.snp}, each SNP will have the minor

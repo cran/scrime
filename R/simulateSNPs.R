@@ -1,12 +1,21 @@
 `simulateSNPs` <-
-function(n.obs,n.snp,vec.ia,prop.explain=1,list.ia.val=NULL,vec.ia.num=NULL,
+function(n.obs,n.snp,vec.ia,prop.explain=1,list.ia.val=NULL,vec.ia.num=NULL,vec.cat=NULL,
 		maf=c(0.1,0.4),prob.val=rep(1/3,3),list.equal=NULL,prob.equal=0.8,
 		rm.redundancy=TRUE,shuffle=FALSE,shuffle.obs=FALSE,rand=NA){
 	raf<-NULL
 	if(!length(n.obs)%in%1:2)
 		stop("n.obs must be either of length 1 or 2.")
-	if(length(n.obs)==1)
-		n.case<-n.control<-ceiling(n.obs/2)
+	if(!is.null(vec.cat)){
+		if(length(vec.cat) != length(vec.ia))
+			stop("vec.cat must have the same length as vec.ia.")
+		n.cat <- length(unique(vec.cat)) + 1
+	}
+	else
+		n.cat <- 2
+	if(length(n.obs) == 1){
+		n.control <- ceiling(n.obs / n.cat)
+		n.case <- (n.cat - 1) * n.control
+	}
 	else{
 		n.case<-n.obs[1]
 		n.control<-n.obs[2]
@@ -138,18 +147,30 @@ function(n.obs,n.snp,vec.ia,prop.explain=1,list.ia.val=NULL,vec.ia.num=NULL,
 	ias<-removeRedundancy(mat,ias)
 	mat2<-as.data.frame(mat)
 	vec.cases<-vec.controls<-numeric(n.ia)
+	mat.eval <- matrix(0, n.obs, n.ia)
 	attach(mat2)
-	for(i in 1:n.ia){
-		tmp.eval<-eval(parse(text=ias[i]))
-		vec.cases[i]<-sum(tmp.eval[y==1])
-		vec.controls[i]<-sum(tmp.eval[y==0])
-	}
+	for(i in 1:n.ia)
+		mat.eval[,i] <- eval(parse(text=ias[i]))
 	detach(mat2)
+	vec.cases <- colSums(mat.eval[y==1,])
+	vec.controls <- colSums(mat.eval[y==0,])
 	if(any(vec.cases!=vec.ia.num))
 		stop("Something went wrong when removing redundancy SNPs.")
 	if(any(vec.controls!=vec.ia.control))
 		stop("Something went wrong when removing redundancy SNPs.")
-	tab.explained<-data.frame(Interaction=ias,Cases=vec.cases,Controls=vec.controls)
+	if(is.null(vec.cat))
+		tab.explained <- data.frame(Interaction=ias, Cases=vec.cases,
+			Controls=vec.controls, stringsAsFactors=FALSE)
+	else{
+		mat.eval <- mat.eval[y==1,]
+		idsSeveral <- rowSums(mat.eval) > 1
+		if(any(idsSeveral))
+			stop("This should not happen. Please inform the author of this function.")
+		y1 <- max.col(mat.eval)
+		y[y==1] <- vec.cat[y1]		 
+		tab.explained <- data.frame(Interaction=ias, Level=vec.cat, Cases=vec.cases,
+			Controls=vec.controls, stringsAsFactors=FALSE)
+	}
 	out<-list(data=mat,cl=y,tab.explain=tab.explained,ia=ias,maf=maf)
 	class(out)<-"simulatedSNPs"
 	out	
