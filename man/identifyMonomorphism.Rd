@@ -1,4 +1,4 @@
-\name{smc}
+\name{identifyMonomorphism}
 \alias{identifyMonomorphism}
 
 \title{Identification of Constant Variables}

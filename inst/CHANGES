@@ -1,3 +1,9 @@
+Version 1.1.7
+
+Added rowMAFs and rowHWEs.
+
+
+##############
 Version 1.1.6
 
 Fixed a wrong explanation in the man page for simulateSNPs.
