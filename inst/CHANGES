@@ -1,3 +1,15 @@
+Version 1.1.9
+
+Fixed a "bug" in the man page of rowHWEs.
+
+
+##############
+Version 1.1.8
+
+Fixed a bug in recodeCount.
+
+
+##############
 Version 1.1.7
 
 Added rowMAFs and rowHWEs.

@@ -1,9 +1,8 @@
 \name{rowHWEs}
 \alias{rowHWEs}
 
-\title{Rowwise Test for Hardy-Weinberg Equilibrium
-%%  ~~function to do ... ~~
-}
+\title{Rowwise Test for Hardy-Weinberg Equilibrium}
+
 \description{
 Tests for each row of a matrix whether the Hardy-Weinberg Equilibrium holds for the SNP
 represented by the row.
