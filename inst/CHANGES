@@ -1,3 +1,9 @@
+Version 1.2.0
+
+Finally, rowHWEs and rowMAFs were added to the NAMESPACE file.
+
+
+##############
 Version 1.1.9
 
 Fixed a "bug" in the man page of rowHWEs.

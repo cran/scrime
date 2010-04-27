@@ -1,15 +1,16 @@
 export(analyse.models, cohen, computeContCells, computeContClass, fblr, fblr.weight,
-	gknn, knncatimpute, knncatimputeLarge, pamCat, pcc, predictFBLR, recodeAffySNP,
-	recodeSNPs, rowChisqStats, simulateSNPglm, simulateSNPs, smc, snp2bin,
-	canberra2Mats, cohen2Mats, euclidean2Mats, manhattan2Mats, maximum2Mats, minkowski2Mats,
-	pcc2Mats, smc2Mats, identifyMonomorphism, simulateSNPcatResponse, 
-	print.simSNPcatResponse, showChanges,
-	rowCATTs, rowChisq2Class, rowChisqMultiClass, rowCors, rowFreqs, rowMsquares,
-	rowScales, rowTables, rowTrendStats, buildSNPannotation, shortenGeneDescription)	
+	gknn, knncatimpute, knncatimputeLarge, pamCat, pcc, predictFBLR, 
+	recodeAffySNP, recodeSNPs, rowChisqStats, simulateSNPglm, simulateSNPs, 
+	smc, snp2bin, canberra2Mats, cohen2Mats, euclidean2Mats, manhattan2Mats, 
+	maximum2Mats, minkowski2Mats, pcc2Mats, smc2Mats, identifyMonomorphism, 
+	simulateSNPcatResponse, showChanges, rowCATTs, rowChisq2Class, 
+	rowChisqMultiClass, rowCors, rowFreqs, rowMsquares, rowScales, rowTables, 
+	rowTrendStats, buildSNPannotation, shortenGeneDescription, rowMAFs, rowHWEs)	
 
 S3method(predict, pamCat)
 S3method(print, pamCat)
 S3method(print, simSNPglm)
 S3method(print, simulatedSNPs)
+S3method(print, simSNPcatResponse)
 S3method(summary, simSNPglm)
 
