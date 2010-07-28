@@ -5,7 +5,8 @@ export(analyse.models, cohen, computeContCells, computeContClass, fblr, fblr.wei
 	maximum2Mats, minkowski2Mats, pcc2Mats, smc2Mats, identifyMonomorphism, 
 	simulateSNPcatResponse, showChanges, rowCATTs, rowChisq2Class, 
 	rowChisqMultiClass, rowCors, rowFreqs, rowMsquares, rowScales, rowTables, 
-	rowTrendStats, buildSNPannotation, shortenGeneDescription, rowMAFs, rowHWEs)	
+	rowTrendStats, buildSNPannotation, shortenGeneDescription, rowMAFs, rowHWEs,
+	colEpistatic)	
 
 S3method(predict, pamCat)
 S3method(print, pamCat)
@@ -13,4 +14,5 @@ S3method(print, simSNPglm)
 S3method(print, simulatedSNPs)
 S3method(print, simSNPcatResponse)
 S3method(summary, simSNPglm)
+S3method(print, colEpi)
 

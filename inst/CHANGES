@@ -1,3 +1,10 @@
+Version 1.2.1
+
+Added a function called colEpistatic for testing epistatic
+two-way interactions.
+
+
+##############
 Version 1.2.0
 
 Finally, rowHWEs and rowMAFs were added to the NAMESPACE file.
