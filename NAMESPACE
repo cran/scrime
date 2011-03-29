@@ -6,7 +6,7 @@ export(analyse.models, cohen, computeContCells, computeContClass, fblr, fblr.wei
 	simulateSNPcatResponse, showChanges, rowCATTs, rowChisq2Class, 
 	rowChisqMultiClass, rowCors, rowFreqs, rowMsquares, rowScales, rowTables, 
 	rowTrendStats, buildSNPannotation, shortenGeneDescription, rowMAFs, rowHWEs,
-	colEpistatic)	
+	colEpistatic, abf, rowTrendFuzzy, getMatFuzzy)	
 
 S3method(predict, pamCat)
 S3method(print, pamCat)

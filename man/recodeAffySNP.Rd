@@ -14,7 +14,7 @@ recodeAffySNP(mat, refAA = FALSE, geno = 1:3)
   \item{mat}{a matrix or data frame consisting of the character strings \code{"AA"}, \code{"AB"},
     \code{"BB"}. Missing values can be coded by either \code{"NN"} or \code{NA}. Each
     row is assumed to correspond to a variable, and each column to a microarray.}
-  \item{refAA}{codes \code{"AA"} always for the homozygous reference gentoype? If
+  \item{refAA}{codes \code{"AA"} always for the homozygous reference genotype? If
    \code{TRUE}, \code{"AA"} is always replaced by \code{geno[1]}, and \code{"BB"} by
    \code{geno[3]}. If \code{FALSE}, it is evaluated rowwise whether \code{"AA"} or
    \code{"BB"} occurs more often, and the more frequently occuring value is set to \code{geno[1]}.}

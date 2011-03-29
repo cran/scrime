@@ -8,7 +8,7 @@ rowHWEs <- function(x, levels=1:3, affy=FALSE, check=TRUE){
 	mat.exp[,2] <- 2 * p * pb
 	mat.exp[,3] <- pb^2 
 	stats <-  n * (rowSums(mat.obs * mat.obs / mat.exp) - 1)
-	rawp <- pchisq(stats, 1, lower=FALSE)
+	rawp <- pchisq(stats, 1, lower.tail=FALSE)
 	structure(list(stats=stats, rawp=rawp))
 }
 

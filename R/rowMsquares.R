@@ -61,7 +61,7 @@ function(..., listTables=NULL, clScores=NULL, levScores=NULL, add.pval=TRUE){
 	stats <- stats * (n.obs-1)
 	if(!add.pval)
 		return(stats)
-	rawp <- pchisq(stats, 1, lower=FALSE)
+	rawp <- pchisq(stats, 1, lower.tail=FALSE)
 	structure(list(stats=stats, rawp=rawp))
 }
 

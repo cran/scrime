@@ -41,7 +41,7 @@ function(cases, controls, add.pval=TRUE, sameNull=FALSE){
 	cases <- n.obs*cases
 	if(!add.pval)
 		return(cases)
-	pval <- pchisq(cases, df, lower=FALSE)
+	pval <- pchisq(cases, df, lower.tail=FALSE)
 	pval[df==0] <- 1
 	structure(list(stats=cases, df=df, rawp=pval))
 }

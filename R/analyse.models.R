@@ -31,19 +31,19 @@ function (file, size.freq = TRUE, moco = c(20, 10), int.freq = TRUE,
     models <- erg[, 2:((int.level + 1) * kmax + 1)]
     begin <- seq(1, by = int.level + 1, length.out = kmax)
     only.ones <- apply(models, 1, ones)
-    only.ones <- sort(table(as.vector(only.ones[only.ones > 0])), decr = TRUE)/fac
+    only.ones <- sort(table(as.vector(only.ones[only.ones > 0])), decreasing = TRUE)/fac
     if (!is.null(bin.names))
         names(only.ones) <- sub.names(only.ones, new.names = bin.names)
     only.twos <- apply(models, 1, twos)
     only.twos <- sort(table(as.vector(only.twos[only.twos !=
-        "0 0"])), decr = TRUE)/fac
+        "0 0"])), decreasing = TRUE)/fac
     if (!is.null(bin.names)) {
         names(only.twos) <- sub.names(only.twos, new.names = bin.names)
     }
     if (length(moco) > 2) {
         only.threes <- apply(models, 1, threes)
         only.threes <- sort(table(as.vector(only.threes[only.threes !=
-            "0 0 0"])), decr = TRUE)[1:moco[3]]/fac
+            "0 0 0"])), decreasing = TRUE)[1:moco[3]]/fac
         if (!is.null(bin.names)) {
             names(only.threes) <- sub.names(only.threes, new.names = bin.names)
         }

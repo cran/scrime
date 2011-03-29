@@ -9,7 +9,7 @@ function(data,stats,n.cat,asMatrix=TRUE){
 	df<-df-1
 	mat.df<-df%*%t(df)
 	df<-mat.df[lower.tri(mat.df)]
-	rawp<-pchisq(stats,df,lower=FALSE)
+	rawp<-pchisq(stats,df,lower.tail=FALSE)
 	rawp[df==0] <- 1
 	if(!asMatrix)
 		return(list(stats=stats,df=df,rawp=rawp))

@@ -1,3 +1,33 @@
+Version 1.2.5
+
+Corrected the estimates for the log odds ratios theta and their
+variances in rowTrendFuzzy
+
+
+##############
+Version 1.2.4
+
+Added getMatFuzzy to construct a matrix containing fuzzy genotype
+calls.
+
+
+##############
+Version 1.2.3
+
+Added functions abf and rowTrendFuzzy for computing approximate
+Bayes factors and performing score tests for fuzzy genotype calls,
+respectively.
+
+
+##############
+Version 1.2.2
+
+Corrected the specification of some arguments to avoid the partial 
+argument notes when R CMD check checks for possible problems
+in the R code.
+
+
+##############
 Version 1.2.1
 
 Added a function called colEpistatic for testing epistatic

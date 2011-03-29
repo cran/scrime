@@ -35,7 +35,7 @@ function(..., listTables=NULL, add.pval=TRUE, sameNull=FALSE){
 	stats <- n.obs * stats
 	if(!add.pval)
 		return(stats)
-	pval <- pchisq(stats, df, lower=FALSE)
+	pval <- pchisq(stats, df, lower.tail=FALSE)
 	pval[df==0] <- 1
 	structure(list(stats=stats, df=df, rawp=pval))	
 }
