@@ -121,8 +121,8 @@ sim1 <- simulateSNPs(2000, 50, c(3, 2, 2))
 sim1
 
 # Simulate data of 1200 cases and 800 controls for 50 SNPs, 
-# where 90% of the observations showing a randomly chosen 
-# three-way interaction are cases, and 95% of the observations 
+# where 90\% of the observations showing a randomly chosen 
+# three-way interaction are cases, and 95\% of the observations 
 # showing a randomly chosen two-way interactions are cases.
 
 sim2 <- simulateSNPs(c(1200, 800), 50, c(3, 2), 

@@ -1,7 +1,13 @@
+Version 1.2.6
+
+Extended colEpistatic and added rowEpistatic.
+
+
+##############
 Version 1.2.5
 
 Corrected the estimates for the log odds ratios theta and their
-variances in rowTrendFuzzy
+variances in rowTrendFuzzy.
 
 
 ##############
