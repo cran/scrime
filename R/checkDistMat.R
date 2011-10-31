@@ -1,5 +1,5 @@
 `checkDistMat` <-
-function(mat,n.row,rn){
+function(dist,n.row,rn){
 	if(nrow(dist)!=ncol(dist))
 		stop("dist must be a squared matrix.",call.=FALSE)
 	if(nrow(dist)!=n.row)

@@ -15,8 +15,6 @@ function(x,dist=FALSE,corrected=TRUE,version=1){
 	pcc<-chi2/(chi2+mat.n)
 	mat.rc<-minrc(x)
 	mat.rc<-mat.rc/(mat.rc-1)
-	print(mat.rc)
-	print(diag(pcc))
 	diag(pcc)<-if(is.matrix(mat.rc)) 1/diag(mat.rc) else 1/mat.rc
 	if(corrected)
 		pcc<-mat.rc*pcc

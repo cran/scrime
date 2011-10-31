@@ -1,3 +1,15 @@
+Version 1.2.8
+
+Removed a little bug from checkDistMat.
+
+
+##############
+Version 1.2.7
+
+Removed a little bug from pcc.
+
+
+##############
 Version 1.2.6
 
 Extended colEpistatic and added rowEpistatic.
