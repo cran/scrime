@@ -1,4 +1,4 @@
-981874ad994857c3b2004cb419df7b44 *DESCRIPTION
+d3be3493c17e22153a091e91c5637b72 *DESCRIPTION
 dc0f1a4bd7c294f42394086a8ce33e41 *NAMESPACE
 09bce108d6ea28fa934d7a8a16d05425 *R/abf.R
 df01d754e1db30c94b4729da476fe2ac *R/analyse.models.R
@@ -17,7 +17,7 @@ da0d58a8c9757160dc5b0c0a98dad32b *R/checkX1X2.R
 2efc9f8b294a3544b4ce9b2cb9c3791b *R/chisqInd.R
 a42b0e7b8e4b7cfc8928ca4d34d2eadf *R/cohen.R
 00783c785827114668ef5ff57f8070c9 *R/cohen2Mats.R
-5e0ab37217d28f3a008c6d9c45c8cd60 *R/colEpistatic.R
+39e80568cd38863d202dae6dcc25c20d *R/colEpistatic.R
 ff5ccfa49c95a77b8cfd52ff626a939f *R/compChisqPval.R
 94d4b37fdc026ed26eeeb9769c0008df *R/compVarLevs.R
 09f60aa3f05f25c6208b75c1ce6956e6 *R/computeContCells.R
@@ -89,7 +89,7 @@ ad868aa86220de4e949750bcddb9f51d *R/simulateSNPs.R
 ade68d8dd175a8cd7a163dce9d95707d *R/snp2bin.R
 257283b8a7bc5595d505d61b6fa84686 *R/summary.simSNPglm.R
 cafef66868a7a655c993bf66467fa35f *R/weightMode.R
-e619251430a11c43a7ff5a879bb9ee90 *inst/CHANGES
+03ba5946472749cda25ff08791d934f1 *inst/CHANGES
 9445f8986f3d90a6a8f313972bf6c3a1 *man/abf.Rd
 c8120896d4fff45a611dadb7f1f0c24c *man/analyse.models.Rd
 ecf43a5eb2ece109f0644685c3c2c1e2 *man/buildSNPannotation.Rd

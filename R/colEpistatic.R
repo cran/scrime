@@ -40,9 +40,9 @@ colEpistatic <- function(mat.snp, cl, genes=NULL, warnError=TRUE){
 	}
 	for(i in 1:n.combs){
 		x1 <- x[,combs[i,1]]
-		z1 <- x[,combs[i,1]]
+		z1 <- z[,combs[i,1]]
 		x2 <- x[,combs[i,2]]
-		z2 <- x[,combs[i,2]]
+		z2 <- z[,combs[i,2]]
 		woIA <- try(glm(cl ~ x1 + z1 + x2 + z2, family="binomial"), silent=TRUE)
 		if(is(woIA, "try-error")){
 			ll.main[i] <- NA
