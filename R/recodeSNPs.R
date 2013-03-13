@@ -19,7 +19,7 @@ function(mat,first.ref=FALSE,geno=1:3,snp.in.col=FALSE){
 		}
 	}
 	if(any(ids.nohete))
-		mat[ids.nohete,]<-recodeNoHete(mat[ids.nohete,],geno=geno)
+		mat[ids.nohete,]<-recodeNoHete(mat[ids.nohete,, drop=FALSE],geno=geno)
 	if(is.numeric(geno))
 		mode(mat)<-"numeric"
 	if(snp.in.col)

@@ -10,10 +10,8 @@ buildSNPmat<-function(n.obs,n.snp,maf,ias,rep=FALSE){
 	colnames(mat)<-paste("SNP",1:n.snp,sep="")
 	mat2<-as.data.frame(mat)
 	mat.ias<-matrix(0,2*n.obs,length(ias))
-	attach(mat2)
 	for(i in 1:length(ias))
-		mat.ias[,i]<-eval(parse(text=ias[i]))
-	detach(mat2)
+		mat.ias[,i]<-with(mat2, eval(parse(text=ias[i])))
 	rs<-rowSums(mat.ias)
 	mat<-mat[rs<=1,]
 	if(rep)

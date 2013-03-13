@@ -69,10 +69,8 @@ function(n.obs=1000,n.snp=50,list.ia=NULL,list.snp=NULL,beta0=-0.5,beta=1.5,maf=
 	mat.glm<-matrix(0,n.obs,n.ia+1)
 	mat.glm[,1]<-1
 	mat2<-as.data.frame(mat)
-	attach(mat2)
 	for(i in 1:n.ia)
-		mat.glm[,i+1]<-eval(parse(text=vec.ia[i]))
-	detach(mat2)
+		mat.glm[,i+1]<-with(mat2, eval(parse(text=vec.ia[i])))
 	beta<-c(beta0,beta)
 	prob<-as.vector(mat.glm%*%beta)
 	if(is.null(err.fun)){

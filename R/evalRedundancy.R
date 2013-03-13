@@ -8,11 +8,9 @@ function(mat,ia,red=0){
 	for(i in 1:n.snps)
 		vec.jack[i]<-paste(vec.snps[-i],collapse=" & ")
 	vec.red<-numeric(n.snps)
-	attach(mat)
-	full<-sum(eval(parse(text=ia)))
+	full<-with(mat, sum(eval(parse(text=ia))))
 	for(i in 1:n.snps)
-		vec.red[i]<-sum(eval(parse(text=vec.jack[i])))
-	detach(mat)
+		vec.red[i]<-with(mat, sum(eval(parse(text=vec.jack[i]))))
 	if(any(vec.red-full<=red)){
 		warning("A redundant SNP in the explanatory interactions is removed.",call.=FALSE)
 		ids<-which.min(vec.red-full)[1]
