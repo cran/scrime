@@ -13,7 +13,8 @@ or imputation procedures.
 Given the confidences and scores for all three genotypes, \code{getMatFuzzy} constructs a matrix containing the fuzzy genotype calls.
 }
 \usage{
-rowTrendFuzzy(score, probs, y, mat.fuzzy = NULL, alternative = c("two.sided", "less", "greater"), 
+rowTrendFuzzy(score, probs, y, mat.fuzzy = NULL, 
+    alternative = c("two.sided", "less", "greater"), 
     check = TRUE)
     
 getMatFuzzy(score, probs, check = TRUE)

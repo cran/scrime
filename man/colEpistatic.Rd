@@ -65,9 +65,6 @@ Human Molecular Genetics, 11, 2463-2468.
 Holger Schwender, \email{holger.schwender@udo.edu}
 }
 
-\seealso{
-\code{\link[trio]{colTDT2way}}
-}
 
 \keyword{htest}
 \keyword{models}

@@ -1,4 +1,4 @@
-5afd3b9988f486770e50b3433cffab3e *DESCRIPTION
+cf1f0a04fe1d77560f9d62d03c85426d *DESCRIPTION
 dc0f1a4bd7c294f42394086a8ce33e41 *NAMESPACE
 09bce108d6ea28fa934d7a8a16d05425 *R/abf.R
 df01d754e1db30c94b4729da476fe2ac *R/analyse.models.R
@@ -93,7 +93,7 @@ cafef66868a7a655c993bf66467fa35f *R/weightMode.R
 9445f8986f3d90a6a8f313972bf6c3a1 *man/abf.Rd
 c8120896d4fff45a611dadb7f1f0c24c *man/analyse.models.Rd
 ecf43a5eb2ece109f0644685c3c2c1e2 *man/buildSNPannotation.Rd
-972c75cb60c2c60f079e57dbf942fd9b *man/colEpistatic.Rd
+a4c50af498ba3f993dc03802482eb03e *man/colEpistatic.Rd
 b15d0cefbd970cf7b845efc144cc395a *man/computeContCells.Rd
 8a5f9d1b5b6a069ac03a20b2170a5a3b *man/computeContClass.Rd
 46a73d331bd43dcc90b47b95e3da33f4 *man/fblr.Rd
@@ -117,7 +117,7 @@ aad98b7ba70e01528d190ea7c7385456 *man/rowMAFs.Rd
 f0d8ea6a65f6177e3e091d360d60c9fa *man/rowMsquares.Rd
 a24a9c4679dab6d3568451848262a5f5 *man/rowScales.Rd
 869bee1510a786db4922ed07ae3a4671 *man/rowTables.Rd
-843d63badf45da0e6ffbc23922d57a12 *man/rowTrendFuzzy.Rd
+e2cc4b6b84e8b160563108cca8e36870 *man/rowTrendFuzzy.Rd
 d99393cacd98c4628d6774c21ff3688a *man/rowTrendStats.Rd
 8a231e4994c7bc2a4642a76f697c4a04 *man/scrime-internal.Rd
 4526b9e66507be098d4b175815bb1cc8 *man/shortenGeneDescription.Rd
