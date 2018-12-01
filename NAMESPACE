@@ -6,7 +6,13 @@ export(analyse.models, cohen, computeContCells, computeContClass, fblr, fblr.wei
 	simulateSNPcatResponse, showChanges, rowCATTs, rowChisq2Class, 
 	rowChisqMultiClass, rowCors, rowFreqs, rowMsquares, rowScales, rowTables, 
 	rowTrendStats, buildSNPannotation, shortenGeneDescription, rowMAFs, rowHWEs,
-	colEpistatic, rowEpistatic, abf, rowTrendFuzzy, getMatFuzzy)	
+	colEpistatic, rowEpistatic, abf, rowTrendFuzzy, getMatFuzzy)
+
+importFrom("methods", "is")
+importFrom("stats", "as.dist", "dist", "dnorm", "glm", "pchisq",
+	"pnorm", "predict", "qnorm", "rbinom", "rgamma", "runif", "sd")
+importFrom("utils", "read.table", "write.table")
+	
 
 S3method(predict, pamCat)
 S3method(print, pamCat)

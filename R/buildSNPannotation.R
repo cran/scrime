@@ -1,10 +1,10 @@
 buildSNPannotation<-function(pkg,rs=TRUE,allele=TRUE,gene=TRUE,chromosome=FALSE,
 		position=FALSE,strand=FALSE,cytoband=FALSE,max.genes=0,lib.loc=NULL,
 		others=NULL,subset=NULL,pattern=NULL,na.rm=TRUE){
-	require(oligoClasses)
-	require(pkg,character.only=TRUE,lib.loc=lib.loc) || stop(paste("Package",pkg,
+	requireNamespace("oligoClasses")
+	require(pkg, character.only=TRUE,lib.loc=lib.loc) || stop(paste("Package",pkg,
 		"not available."))
-	conn<-db(get(pkg))
+	conn <- oligoClasses::db(get(pkg))
 	what<-c("man_fsetid","dbsnp_rs_id","chrom","physical_pos","strand","cytoband",
 		"allele_a","allele_b","gene_assoc")
 	cn<-c("Probe-Set-ID","RefSNP","Chromosome","Position","Strand","Cytoband",
@@ -16,12 +16,12 @@ buildSNPannotation<-function(pkg,rs=TRUE,allele=TRUE,gene=TRUE,chromosome=FALSE,
 		what<-unique(c(what,others))
 		cn<-unique(c(cn,others))
 	}
-	if(any(!what%in%dbListFields(conn,"featureSet")))
+	if(any(!what %in% DBI::dbListFields(conn,"featureSet")))
 		stop("Some of the specified annotations seem to be not available.")
 	sql<-paste("SELECT", paste(what,collapse=", "), "FROM featureSet")
 	if(!is.null(pattern))
 		sql<-paste(sql," WHERE man_fsetid LIKE '",pattern,"'",sep="")
-	out<-dbGetQuery(conn,sql)
+	out <- DBI::dbGetQuery(conn,sql)
 	rn<-out[,1]
 	rownames(out)<-rn
 	colnames(out)<-cn

@@ -1,8 +1,8 @@
-cf1f0a04fe1d77560f9d62d03c85426d *DESCRIPTION
-dc0f1a4bd7c294f42394086a8ce33e41 *NAMESPACE
+3f4ca6847e856ce039a9b66ddcbe012d *DESCRIPTION
+52cf70dc46a44a688b16c76a550b8f76 *NAMESPACE
 09bce108d6ea28fa934d7a8a16d05425 *R/abf.R
 df01d754e1db30c94b4729da476fe2ac *R/analyse.models.R
-a6827002f911b9fc54172ba5e9dac5cd *R/buildSNPannotation.R
+5cd24048f8ffba1429cef6df51d5c2c6 *R/buildSNPannotation.R
 fc32401aff7d5eeffa5507b3eba64584 *R/buildSNPmat.R
 cc1a34da72b4811889728064adff9a9b *R/canberra2Mats.R
 cc6c5d7b281953ad3fbf9079357bd8f2 *R/check4Monomorphism.R
@@ -27,8 +27,8 @@ b4117f800f03c0fef3762887789b1f2e *R/constructMatIA.R
 274d3ce9c37ae3391d1f0e279e514b25 *R/dist2Mats.R
 93df705203fdc9a3f19c91fb2657f8db *R/euclidean2Mats.R
 19b6ffa1319e017630ee1660cf8f5a66 *R/evalRedundancy.R
-80d76506553891b9bbafbc40770c1c95 *R/fblr.R
-c598fdeb6734d542dbba229c3cebfbc5 *R/fblr.weight.R
+6c1b69267f102904bc6c622b06cab4c8 *R/fblr.R
+302486927494ad6bfc94a97970d83b54 *R/fblr.weight.R
 8eaee574035808b87f155b7433c203ae *R/getBinDomRec.R
 ea2a02004429550b46b0c4a108294075 *R/getBinGenotype.R
 fcba74fb4b56c56875bbaef3ba263b34 *R/getCall.R

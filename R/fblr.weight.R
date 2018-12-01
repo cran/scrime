@@ -3,7 +3,7 @@ function(y,bin,niter,thin=5,nburn=10000, kmax = 10, geo=1,
 		delta1=0.001,delta2= 0.1, predict=FALSE, group=NULL,weight = NULL, 
 		file ="fblr_mcmc.txt"){
 
-	require(MASS) # library MASS for mvrnorm
+	# requireNamespace(MASS) # library MASS for mvrnorm
 
 	# Checks
 	if(!is.null(group)){
@@ -250,7 +250,7 @@ function(y,bin,niter,thin=5,nburn=10000, kmax = 10, geo=1,
     		}
      		# Update beta
     		m <-  Vstar%*%t(B)%*%z
-    		b <- mvrnorm(1,mu=m,Sigma=Vstar)
+    		b <- MASS::mvrnorm(1,mu=m,Sigma=Vstar)
 		if(i%%thin == 0 & i > nburn){
     			write.table(matrix(c(model,round(marg.loglike,2),round(tau,6),
 				round(b,4),rep(0,kmax+1-length(b))),nrow=1),file=file,
